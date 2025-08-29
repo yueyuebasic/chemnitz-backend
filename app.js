@@ -7,7 +7,12 @@ const connectDB = require('./config/database');
 const app = express();
 
 // 中间件配置
-app.use(cors());
+app.use(cors({
+  origin: "https://chemnitzexplorer.vercel.app",
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
 app.use(express.json());
 
 // 数据库连接
